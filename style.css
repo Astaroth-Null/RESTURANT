@@ -1,0 +1,733 @@
+/* Place this file in the same folder. It is properly linked in index.html. */
+
+/* ===============================
+   COLOR SETTINGS (EDIT HERE!)
+   =============================== */
+/* 
+   All color customizations are defined below as CSS variables.
+   Change the values in this section to quickly update the color theme for your site.
+*/
+:root {
+    --brand-red: #c4171f;
+    --brand-red-dark: #8f0e16;
+    --brand-gold: #f8d57e;
+    --brand-gold-dark: #d3b053;
+    --brand-cream: #fff4e5;
+    --ink-dark: #2f080b;
+    --ink-muted: rgba(47, 8, 11, 0.72);
+
+    /* === MAIN HEADER COLORS === */
+    --header-background: var(--brand-red);
+    --header-text-color: var(--brand-cream);
+
+    /* === LOGO COLORS === */
+    --logo-circle-background: #c4171f;
+    --banner-background: rgba(255, 244, 229, 0.15);
+
+    /* === NAVIGATION COLORS === */
+    --nav-background: var(--brand-red-dark);
+    --nav-border: transparent;
+
+    /* === BUTTON COLORS === */
+    --button-background: var(--brand-gold);
+    --button-hover: #ffe294;
+    --button-active: #ddb75a;
+    --button-text: #4a050b;
+
+    /* === CATEGORY HEADER COLORS === */
+    --category-header-background: rgba(196, 23, 31, 0.95);
+    --category-header-text: var(--brand-cream);
+
+    /* === CATEGORY DROPDOWN COLORS === */
+    --category-dropdown-background: var(--brand-cream);
+    --category-dropdown-border: rgba(47, 8, 11, 0.18);
+    --category-dropdown-hover: rgba(248, 213, 126, 0.28);
+    --category-dropdown-active: var(--brand-red);
+    --category-dropdown-active-text: var(--brand-cream);
+    --category-count-color: rgba(47, 8, 11, 0.65);
+
+    /* === MENU ITEM COLORS === */
+    --menu-item-border: rgba(255, 244, 229, 0.28);
+    --menu-item-background: rgba(255, 244, 229, 0.92);
+    --menu-price-color: var(--brand-gold);
+
+    /* === SEARCH COLORS === */
+    --search-background: var(--brand-red-dark);
+    --search-border: var(--brand-red);
+    --search-focus-border: var(--brand-gold);
+    --clear-button-background: #f75f60;
+    --clear-button-hover: #dc4a4d;
+
+    /* === MODAL COLORS === */
+    --modal-overlay: rgba(26, 4, 6, 0.92);
+    --modal-background: var(--brand-cream);
+    --modal-price-color: var(--brand-red);
+    --modal-close-color: var(--brand-cream);
+
+    /* === SECTION TITLE COLORS === */
+    --section-title-background: linear-gradient(90deg, rgba(196, 23, 31, 0.95) 0%, rgba(143, 14, 22, 0.95) 100%);
+    --section-title-text: var(--brand-cream);
+
+    /* === OTHER COLORS === */
+    --body-background: #8f0e16;
+    --body-gradient: linear-gradient(180deg, #b70214 0%, #8f0e16 100%);
+    --body-text: var(--ink-dark);
+    --shadow-color: rgba(26, 4, 6, 0.12);
+    --shadow-hover: rgba(26, 4, 6, 0.24);
+}
+
+/* ===============================
+   DO NOT EDIT BELOW THIS LINE
+   (Unless you want to change the layout/structure)
+   =============================== */
+
+/* 
+   Basic Reset and Body Styling 
+   Sets up the font, background, and global box-sizing.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Noto Sans Myanmar", "Pretendard", "Inter", Arial, sans-serif;
+    background: var(--body-gradient);
+    color: var(--brand-cream);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+button,
+a,
+input,
+textarea,
+select {
+    min-height: 44px; /* Improves accessibility for touch devices */
+}
+button {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+body {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 
+   Header Styles 
+   Styles for the top header section, including logo, banner, and header text.
+*/
+.header {
+    background: radial-gradient(circle at top left, rgba(255, 240, 215, 0.16), transparent 55%),
+                var(--header-background);
+    padding: 24px 20px 28px;
+    color: var(--header-text-color);
+    border-bottom: 1px solid rgba(255, 213, 126, 0.18);
+    box-shadow: 0 18px 36px rgba(26, 4, 6, 0.18);
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 24px;
+}
+.logo-container {
+    flex-shrink: 0;
+}
+.logo-circle {
+    width: 160px;
+    height: 160px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(255, 244, 229, 0.85) 0%, rgba(255, 244, 229, 0.3) 100%);
+    border: 1px solid rgba(248, 213, 126, 0.35);
+    box-shadow: 0 20px 40px rgba(26, 4, 6, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+}
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.header-text {
+    flex: 1;
+    font-size: 16px;
+    line-height: 1.8;
+    padding: 0 20px;
+    color: rgba(255, 244, 229, 0.92);
+}
+.header-text p {
+    margin: 5px 0;
+}
+.banner-container {
+    flex-shrink: 0;
+    width: 400px;
+    height: 150px;
+    background-color: var(--banner-background);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 
+   Navigation Styles 
+   Styles for the site navigation bar and navigation buttons.
+*/
+.navigation {
+    background: linear-gradient(90deg, rgba(143, 14, 22, 0.95) 0%, rgba(196, 23, 31, 0.95) 100%);
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 213, 126, 0.2);
+    position: relative;
+    box-shadow: 0 12px 30px rgba(26, 4, 6, 0.28);
+}
+.nav-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.nav-item {
+    position: relative;
+}
+.nav-btn {
+    padding: 12px 28px;
+    border: none;
+    background: linear-gradient(135deg, rgba(248, 213, 126, 0.92) 0%, rgba(248, 213, 126, 0.68) 100%);
+    color: var(--button-text);
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 12px 24px rgba(26, 4, 6, 0.22);
+}
+.nav-btn:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 16px 32px rgba(26, 4, 6, 0.28);
+}
+.nav-btn.active {
+    background: linear-gradient(135deg, rgba(196, 23, 31, 0.95) 0%, rgba(143, 14, 22, 0.95) 100%);
+    color: var(--brand-cream);
+    box-shadow: inset 0 0 0 2px rgba(248, 213, 126, 0.45), 0 12px 24px rgba(26, 4, 6, 0.24);
+}
+
+/* 
+   Menu Section Styles 
+   Layout for menu items and their categories.
+*/
+.menu-section {
+    max-width: 1200px;
+    margin: 48px auto 60px;
+    padding: 0 24px;
+}
+.section-title {
+    background: var(--section-title-background);
+    color: var(--section-title-text);
+    padding: 18px 28px;
+    text-align: center;
+    border-radius: 18px;
+    margin-bottom: 36px;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    box-shadow: 0 16px 32px rgba(26, 4, 6, 0.32);
+    border: 1px solid rgba(248, 213, 126, 0.28);
+    display: none;
+}
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+.category-header {
+    background: linear-gradient(90deg, rgba(143, 14, 22, 0.95) 0%, rgba(196, 23, 31, 0.95) 100%);
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.category-header h3 {
+    padding: 11px 28px;
+    border: none;
+    background: linear-gradient(135deg, rgba(248, 213, 126, 0.92) 0%, rgba(248, 213, 126, 0.68) 100%);
+    color: var(--button-text) !important;
+    border-radius:  999px;
+    text-align: center;
+    font-style: normal;
+    font-size: 16px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    position: relative;
+    
+    
+}
+.category-header h3::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 3px;
+    background: black;
+    border-radius: 999px;
+}
+.menu-item {
+    background: linear-gradient(180deg, rgba(255, 244, 229, 0.96) 0%, rgba(255, 244, 229, 0.82) 100%);
+    border: 1px solid rgba(248, 213, 126, 0.32);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 18px 36px rgba(26, 4, 6, 0.2);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    position: relative;
+}
+.menu-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 213, 126, 0.25);
+    pointer-events: none;
+}
+.menu-item:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 28px 48px rgba(26, 4, 6, 0.28);
+}
+.menu-item-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    filter: saturate(1.05) contrast(1.02);
+}
+.menu-item-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(47, 8, 11, 0.92) 0%, rgba(47, 8, 11, 0.32) 60%, transparent 100%);
+    padding: 18px 18px 22px;
+    color: var(--brand-cream);
+}
+.menu-item-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--brand-cream);
+    text-shadow: 0 12px 24px rgba(26, 4, 6, 0.85);
+    letter-spacing: 0.04em;
+}
+.menu-item-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-item-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--menu-price-color);
+    text-shadow: 0 10px 22px rgba(26, 4, 6, 0.7);
+    white-space: pre-line;
+}
+
+/* 
+   Responsive Design 
+   Adjusts layout, font sizes, and image sizes for different screen widths.
+*/
+@media (max-width: 1024px) {
+    .header-content {
+        gap: 15px;
+    }
+    .banner-container {
+        width: 300px;
+        height: 120px;
+    }
+    .header-text {
+        font-size: 14px;
+    }
+}
+@media (max-width: 768px) {
+    .header {
+        padding: 15px;
+    }
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .logo-circle {
+        width: 120px;
+        height: 120px;
+    }
+    .header-text {
+        padding: 10px;
+        font-size: 13px;
+    }
+    .banner-container {
+        width: 100%;
+        max-width: 400px;
+        height: 150px;
+    }
+    .navigation {
+        padding: 10px;
+    }
+    .nav-container {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .nav-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    .menu-section {
+        padding: 0 15px;
+        margin: 20px auto;
+    }
+    .section-title {
+        font-size: 20px;
+        padding: 12px;
+    }
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    .menu-item-image {
+        height: 120px;
+    }
+    .menu-item-content {
+        padding: 10px 8px;
+    }
+    .menu-item-name {
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+    .menu-item-price {
+        font-size: 13px;
+    }
+}
+@media (max-width: 480px) {
+    .header {
+        padding: 10px;
+    }
+    .logo-circle {
+        width: 100px;
+        height: 100px;
+    }
+    .header-text {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+    .banner-container {
+        height: 120px;
+    }
+    .nav-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+        flex: 1;
+        min-width: auto;
+    }
+    .section-title {
+        font-size: 18px;
+        padding: 10px;
+    }
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    .menu-item-image {
+        height: 100px;
+    }
+    .menu-item-content {
+        padding: 8px 6px;
+    }
+    .menu-item-name {
+        font-size: 11px;
+        margin-bottom: 4px;
+    }
+    .menu-item-price {
+        font-size: 11px;
+    }
+}
+
+/* 
+   Search Container Styles 
+   Styles for the search bar and clear button.
+*/
+.search-container {
+    background: linear-gradient(90deg, rgba(143, 14, 22, 0.94) 0%, rgba(196, 23, 31, 0.9) 100%);
+    padding: 18px 24px;
+    border-bottom: 1px solid rgba(255, 213, 126, 0.24);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    box-shadow: 0 18px 32px rgba(26, 4, 6, 0.28);
+}
+#searchInput {
+    flex: 1;
+    padding: 10px 15px;
+    border: 2px solid var(--search-border);
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+#searchInput:focus {
+    border-color: var(--search-focus-border);
+}
+.clear-search-btn {
+    padding: 10px 20px;
+    background-color: var(--clear-button-background);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+.clear-search-btn:hover {
+    background-color: var(--clear-button-hover);
+}
+.menu-item.hidden {
+    display: none;
+}
+
+/* 
+   Category Dropdown Styles 
+   Styles for the dropdown menu under categories in the navigation.
+*/
+.category-dropdown {
+    background: rgba(255, 244, 229, 0.96);
+    border: 1px solid rgba(248, 213, 126, 0.35);
+    border-radius: 16px;
+    padding: 12px;
+    box-shadow: 0 22px 44px rgba(26, 4, 6, 0.25);
+    max-width: 260px;
+    width: auto;
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    z-index: 1000;
+    display: none;
+    min-width: 220px;
+    backdrop-filter: blur(12px);
+}
+.category-item {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    font-size: 15px;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+    border-radius: 12px;
+    color: var(--ink-dark);
+    font-weight: 500;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+}
+.category-item:hover {
+    background: rgba(248, 213, 126, 0.22);
+    transform: translateX(4px);
+}
+.category-item.active {
+    background-color: var(--category-dropdown-active);
+    color: var(--category-dropdown-active-text);
+}
+.category-count {
+    color: var(--category-count-color);
+    font-weight: normal;
+    font-size: 14px;
+    margin-left: 4px;
+}
+.category-item.active .category-count {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* 
+   Menu Detail Modal 
+   Styles for the popup/modal that shows menu item details.
+*/
+.menu-detail-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(26, 4, 6, 0.82);
+    backdrop-filter: blur(18px);
+    animation: fadeIn 0.3s ease;
+}
+.menu-detail-content {
+    position: relative;
+    background: linear-gradient(160deg, rgba(255, 244, 229, 0.98) 0%, rgba(255, 244, 229, 0.88) 100%);
+    margin: 5% auto;
+    padding: 0;
+    width: 90%;
+    max-width: 620px;
+    border-radius: 28px;
+    overflow: hidden;
+    border: 1px solid rgba(248, 213, 126, 0.3);
+    box-shadow: 0 40px 80px rgba(26, 4, 6, 0.4);
+    animation: slideUp 0.35s ease;
+}
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.menu-detail-close {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    color: var(--modal-close-color);
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2001;
+    text-shadow: 0 12px 28px rgba(26, 4, 6, 0.6);
+    transition: transform 0.2s ease, text-shadow 0.2s ease;
+}
+.menu-detail-close:hover,
+.menu-detail-close:focus {
+    transform: scale(1.15);
+    text-shadow: 0 18px 40px rgba(26, 4, 6, 0.7);
+}
+.menu-detail-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+.menu-detail-info {
+    padding: 25px;
+    background-color: var(--modal-background);
+}
+.menu-detail-info h2 {
+    margin: 0 0 15px 0;
+    color: var(--body-text);
+    font-size: 28px;
+}
+.menu-detail-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--modal-price-color);
+    margin-bottom: 20px;
+}
+.menu-detail-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+    margin: 0;
+    white-space: pre-line;
+}
+
+/* 
+   Mobile Responsive for Modal 
+   Adjusts modal size and font for small screens.
+*/
+@media (max-width: 768px) {
+    .menu-detail-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+    .menu-detail-image {
+        height: 250px;
+    }
+    .menu-detail-info {
+        padding: 20px;
+    }
+    .menu-detail-info h2 {
+        font-size: 24px;
+    }
+    .menu-detail-price {
+        font-size: 20px;
+    }
+    .menu-detail-description {
+        font-size: 15px;
+    }
+}
+@media (max-width: 480px) {
+    .menu-detail-content {
+        margin: 15% auto;
+    }
+    .menu-detail-image {
+        height: 200px;
+    }
+    .menu-detail-info {
+        padding: 15px;
+    }
+    .menu-detail-info h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .menu-detail-price {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    .menu-detail-description {
+        font-size: 14px;
+    }
+    .menu-detail-close {
+        font-size: 30px;
+        top: 10px;
+        right: 15px;
+    }
+}
+@media (max-width: 768px) {
+    .nav-container {
+        justify-content: flex-start !important; /* Align nav buttons left */
+        flex-direction: row;
+        gap: 8px;
+    }
+    .nav-item {
+        flex: none;
+        text-align: left;
+    }
+}
+@media (max-width: 480px) {
+    .nav-container {
+        justify-content: flex-start !important; /* Align nav buttons left */
+        flex-direction: row;
+        gap: 8px;
+    }
+    .nav-item {
+        flex: none;
+        text-align: left;
+    }
+}

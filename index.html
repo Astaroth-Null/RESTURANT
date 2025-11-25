@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arr Gyi Shi Korean Foods</title>
+    <!-- Add the following favicon link for icon.png -->
+    <link rel="icon" type="image/png" href="small_icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;600;700&family=Pretendard:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-container" id="logoContainer">
+                <div class="logo-circle" id="logoCircle">
+                    <img src="" alt="Logo" id="logoImage" class="logo-img">
+                </div>
+            </div>
+            <div class="header-text" id="headerText"></div>
+            <div class="banner-container">
+                <img src="" alt="Banner" id="bannerImage" class="banner-img">
+            </div>
+        </div>
+    </header>
+    <nav class="navigation">
+        <div class="nav-container">
+            <div class="nav-item">
+                <button class="nav-btn" id="categoriesBtn">Categories ▼</button>
+                <div class="category-dropdown" id="categoryDropdown" style="display: none;">
+                    <div id="categoryList"></div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <button class="nav-btn" id="searchBtn">🔍 Search</button>
+            </div>
+        </div>
+    </nav>
+    <div class="search-container" id="searchContainer" style="display: none;">
+        <input type="text" id="searchInput" placeholder="Search menu items...">
+        <button id="clearSearchBtn" class="clear-search-btn">Clear</button>
+    </div>
+    <section class="menu-section">
+        <h2 class="section-title"></h2>
+        <div class="menu-grid" id="menuGrid"></div>
+    </section>
+    <div id="menuDetailModal" class="menu-detail-modal">
+        <div class="menu-detail-content">
+            <span class="menu-detail-close">&times;</span>
+            <img id="detailImage" class="menu-detail-image" src="" alt="">
+            <div class="menu-detail-info">
+                <h2 id="detailName"></h2>
+                <p id="detailPrice" class="menu-detail-price"></p>
+                <p id="detailDescription" class="menu-detail-description"></p>
+            </div>
+        </div>
+    </div>
+    <!-- The customer.js file is linked here and contains ALL the data and logic -->
+    <script src="customer.js"></script>
+</body>
+</html>
