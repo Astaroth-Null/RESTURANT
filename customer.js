@@ -13,7 +13,7 @@ const DATA = {
         "ဖိုင်းဝိုင်း (မနက် (၈) နာရီ မှ နေလည် (၃) နာရီ",
         "အထ)"
     ],
-    bannerImage: "https://i.ibb.co/p6cR1WH9/south-korea.jpg",
+    bannerImage: "https://www.koreaetour.com/wp-content/uploads/2025/10/gyeongbokgung-palace-autumn-south-korea-scaled.jpg",
 
     categories: [
     { id: 1, name: "Korean Food/ကိုရီးယားအစားအစာ" },
